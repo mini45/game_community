@@ -16,4 +16,17 @@
 //});
 
 
-Route::get('/', 'SteamController@login');
+//Route::get('/', 'SteamController@login');
+
+
+Route::get('/', ['as'=>'home','uses'=>'MainController@getHome']);
+
+Route::group(['as'=>'guest::','middleware'=>'guest'],function(){
+    Route::get('/login', ['as'=>'login','uses'=>'SteamController@login']);
+
+});
+
+Route::group(['as'=>'auth::','middleware'=>'auth'],function(){
+//    Route::get('/', ['as'=>'home','uses'=>'MainController@getHome']);
+    Route::get('/logout', ['as'=>'logout','uses'=>'MainController@getLogout']);
+});

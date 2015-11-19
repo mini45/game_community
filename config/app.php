@@ -146,6 +146,10 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Invisnik\LaravelSteamAuth\SteamServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+
 
     ],
 
@@ -196,6 +200,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
+        'HTML'          => Illuminate\Html\HtmlFacade::class,
+        'Socialize'     => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

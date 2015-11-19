@@ -33,16 +33,19 @@ class SteamController extends Controller
                 $user = User::where('steam_id', $info->getSteamID64())->first();
                 if (! is_null($user)) {
                     Auth::login($user, true);
-                    return redirect('/'); // redirect to site
+//                    return redirect('/'); // redirect to site
+                    return view('views.home');
                 }else{
                     $user = User::create([
                         'username' => $info->getNick(),
                         'avatar'   => $info->getProfilePictureFull(),
                         'steam_id'  => $info->getSteamID64()
                     ]);
-                    dd($info);
+//                    dd($info);
                     Auth::login($user, true);
-                    return redirect('/'); // redirect to site
+
+                    return view('views.home');
+//                    return redirect('/'); // redirect to site
                 }
             }
         } else {
